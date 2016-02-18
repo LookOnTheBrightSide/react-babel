@@ -27,12 +27,19 @@ var HeaderSection = React.createClass({
 var MainCard = React.createClass({
   displayName: 'MainCard',
 
+  getInitialState: function () {
+    return { count: 0 };
+  },
+  increment: function () {
+    this.setState({ count: this.state.count + 1 });
+  },
+
   render: function () {
     return(
       //react element props
       React.createElement(
         'div',
-        null,
+        { onClick: this.increment },
         React.createElement(
           'h1',
           null,
@@ -42,7 +49,8 @@ var MainCard = React.createClass({
         React.createElement(
           'h3',
           null,
-          'React 101'
+          'React 101. Clicked : ',
+          this.state.count
         ),
         React.createElement(
           'p',

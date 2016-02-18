@@ -11,12 +11,20 @@ var HeaderSection = React.createClass({
 });
 
 var MainCard =  React.createClass({
+  getInitialState: function(){
+    return { count: 0 }
+  },
+  increment: function(){
+    this.setState({ count: this.state.count + 1 });
+  }
+  ,
+
   render: function(){
     return(
         //react element props
-        <div>
+        <div onClick= {this.increment}>
           <h1>React Components by : {this.props.name}</h1>
-          <h3>React 101</h3>
+          <h3>React 101. Clicked : {this.state.count}</h3>
           <p>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</p>
         </div>
       )
@@ -29,6 +37,7 @@ var HelloWorld = React.createClass({
       <p>
         React Js component!
         It is {this.props.date}
+
       </p>
     );
   }
